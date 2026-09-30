@@ -26,7 +26,7 @@ photostudio/
 ├── docs/
 │   ├── er_diagram.png              <- ER-диаграмма (для защиты)
 │   ├── er_diagram.svg / .dot       <- та же диаграмма (вектор / исходник)
-│   └── CODE_EXPLANATION.md         <- ПОДРОБНОЕ ОБЪЯСНЕНИЕ КОДА для защиты
+│
 ├── export/
 │   └── photostudio_example.xlsx    <- пример Excel-выгрузки
 └── src/main/
