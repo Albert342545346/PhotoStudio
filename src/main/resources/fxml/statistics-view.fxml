@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.chart.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="ru.mirea.photostudio.fx.controller.StatisticsController" styleClass="tab-content">
+    <top>
+        <HBox spacing="8" alignment="CENTER_LEFT" styleClass="panel">
+            <Label text="Показатели системы" styleClass="section-title"/>
+            <Region HBox.hgrow="ALWAYS"/>
+            <Button text="Обновить" styleClass="secondary-button" onAction="#onRefresh"/>
+        </HBox>
+    </top>
+    <center>
+        <HBox spacing="12" styleClass="panel">
+            <TableView fx:id="statsTable" prefWidth="520" minWidth="420">
+                <columns>
+                    <TableColumn fx:id="nameColumn" text="Показатель" prefWidth="380"/>
+                    <TableColumn fx:id="valueColumn" text="Значение" prefWidth="120"/>
+                </columns>
+            </TableView>
+            <VBox spacing="8" HBox.hgrow="ALWAYS">
+                <PieChart fx:id="statusChart" title="Бронирования по статусам" VBox.vgrow="ALWAYS"/>
+                <BarChart fx:id="typeChart" title="Бронирования по типам съёмки (без отменённых)" VBox.vgrow="ALWAYS">
+                    <xAxis>
+                        <CategoryAxis/>
+                    </xAxis>
+                    <yAxis>
+                        <NumberAxis minorTickVisible="false" tickUnit="1"/>
+                    </yAxis>
+                </BarChart>
+            </VBox>
+        </HBox>
+    </center>
+    <bottom>
+        <HBox spacing="8" alignment="CENTER_LEFT" styleClass="panel">
+            <Label text="Бронирований за период: с"/>
+            <DatePicker fx:id="fromPicker" prefWidth="130"/>
+            <Label text="по"/>
+            <DatePicker fx:id="toPicker" prefWidth="130"/>
+            <Button text="Подсчитать" styleClass="primary-button" onAction="#onCountPeriod"/>
+            <Label fx:id="periodResult" styleClass="caption"/>
+        </HBox>
+    </bottom>
+</BorderPane>

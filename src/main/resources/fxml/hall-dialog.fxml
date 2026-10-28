@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="ru.mirea.photostudio.fx.controller.HallDialogController" spacing="14" prefWidth="500" styleClass="dialog-root">
+    <Label fx:id="titleLabel" styleClass="dialog-title"/>
+    <GridPane hgap="12" vgap="10">
+        <columnConstraints>
+            <ColumnConstraints minWidth="130" halignment="RIGHT"/>
+            <ColumnConstraints hgrow="ALWAYS" minWidth="280"/>
+        </columnConstraints>
+            <Label text="Название *" styleClass="form-label" GridPane.rowIndex="0" GridPane.columnIndex="0" GridPane.valignment="TOP"/>
+            <TextField fx:id="nameField" promptText="Белый зал" maxWidth="Infinity" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+            <Label text="Вместимость, чел. *" styleClass="form-label" GridPane.rowIndex="1" GridPane.columnIndex="0" GridPane.valignment="TOP"/>
+            <TextField fx:id="capacityField" promptText="10" maxWidth="Infinity" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+            <Label text="Цена за час, ₽ *" styleClass="form-label" GridPane.rowIndex="2" GridPane.columnIndex="0" GridPane.valignment="TOP"/>
+            <TextField fx:id="priceField" promptText="1200" maxWidth="Infinity" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+            <Label text="Описание" styleClass="form-label" GridPane.rowIndex="3" GridPane.columnIndex="0" GridPane.valignment="TOP"/>
+            <TextArea fx:id="descriptionArea" prefRowCount="3" wrapText="true" GridPane.rowIndex="3" GridPane.columnIndex="1"/>
+    </GridPane>
+    <Label fx:id="errorLabel" styleClass="error-label" wrapText="true"/>
+    <HBox spacing="8" alignment="CENTER_RIGHT">
+        <Button text="Сохранить" defaultButton="true" styleClass="primary-button" onAction="#onSave"/>
+        <Button text="Отмена" cancelButton="true" styleClass="secondary-button" onAction="#onCancel"/>
+    </HBox>
+</VBox>

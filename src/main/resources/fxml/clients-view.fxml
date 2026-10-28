@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="ru.mirea.photostudio.fx.controller.ClientsController" styleClass="tab-content">
+    <top>
+        <HBox spacing="8" alignment="CENTER_LEFT" styleClass="panel">
+            <TextField fx:id="searchField" prefWidth="320" promptText="Поиск по ФИО, телефону или email"/>
+            <Button text="Добавить" styleClass="primary-button" onAction="#onAdd"/>
+            <Button fx:id="editButton" text="Изменить" styleClass="secondary-button" onAction="#onEdit"/>
+            <Button fx:id="deleteButton" text="Удалить" styleClass="danger-button" onAction="#onDelete"/>
+            <Region HBox.hgrow="ALWAYS"/>
+            <Button text="Обновить" styleClass="secondary-button" onAction="#onRefresh"/>
+        </HBox>
+    </top>
+    <center>
+        <TableView fx:id="table">
+            <columns>
+                <TableColumn fx:id="idColumn" text="№" prefWidth="50"/>
+                <TableColumn fx:id="nameColumn" text="ФИО" prefWidth="260"/>
+                <TableColumn fx:id="phoneColumn" text="Телефон" prefWidth="140"/>
+                <TableColumn fx:id="emailColumn" text="Email" prefWidth="240"/>
+                <TableColumn fx:id="vipColumn" text="VIP" prefWidth="70"/>
+                <TableColumn fx:id="registeredColumn" text="Дата регистрации" prefWidth="150"/>
+            </columns>
+        </TableView>
+    </center>
+    <bottom>
+        <VBox spacing="6" styleClass="panel">
+            <Label text="Бронирования выбранного клиента:" styleClass="caption"/>
+            <ListView fx:id="bookingsList" prefHeight="130"/>
+            <Label fx:id="countLabel" styleClass="status-bar"/>
+        </VBox>
+    </bottom>
+</BorderPane>

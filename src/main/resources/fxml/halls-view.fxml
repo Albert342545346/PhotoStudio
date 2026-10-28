@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="ru.mirea.photostudio.fx.controller.HallsController" styleClass="tab-content">
+    <top>
+        <HBox spacing="8" alignment="CENTER_LEFT" styleClass="panel">
+            <TextField fx:id="searchField" prefWidth="320" promptText="Поиск по названию"/>
+            <Button text="Добавить" styleClass="primary-button" onAction="#onAdd"/>
+            <Button fx:id="editButton" text="Изменить" styleClass="secondary-button" onAction="#onEdit"/>
+            <Button fx:id="deleteButton" text="Удалить" styleClass="danger-button" onAction="#onDelete"/>
+            <Region HBox.hgrow="ALWAYS"/>
+            <Button text="Обновить" styleClass="secondary-button" onAction="#onRefresh"/>
+        </HBox>
+    </top>
+    <center>
+        <TableView fx:id="table">
+            <columns>
+                <TableColumn fx:id="idColumn" text="№" prefWidth="50"/>
+                <TableColumn fx:id="nameColumn" text="Название" prefWidth="220"/>
+                <TableColumn fx:id="capacityColumn" text="Вместимость" prefWidth="110"/>
+                <TableColumn fx:id="priceColumn" text="Цена в час" prefWidth="110"/>
+                <TableColumn fx:id="descriptionColumn" text="Описание" prefWidth="460"/>
+            </columns>
+        </TableView>
+    </center>
+    <bottom>
+        <HBox styleClass="panel">
+            <Label fx:id="countLabel" styleClass="status-bar"/>
+        </HBox>
+    </bottom>
+</BorderPane>

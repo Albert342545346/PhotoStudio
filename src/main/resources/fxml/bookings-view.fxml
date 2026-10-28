@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="ru.mirea.photostudio.fx.controller.BookingsController" styleClass="tab-content">
+    <top>
+        <VBox spacing="8" styleClass="panel">
+            <HBox spacing="8" alignment="CENTER_LEFT">
+                <TextField fx:id="searchField" HBox.hgrow="ALWAYS" onAction="#onApplyFilters"
+                           promptText="Поиск: клиент, фотограф, зал, тип съёмки, комментарий или номер"/>
+                <Button text="Найти" styleClass="primary-button" onAction="#onApplyFilters"/>
+            </HBox>
+            <HBox spacing="8" alignment="CENTER_LEFT">
+                <Label text="Статус:"/>
+                <ComboBox fx:id="statusCombo" prefWidth="160"/>
+                <Label text="Тип съёмки:"/>
+                <ComboBox fx:id="typeCombo" prefWidth="160"/>
+                <Label text="Период с:"/>
+                <DatePicker fx:id="fromPicker" prefWidth="130"/>
+                <Label text="по:"/>
+                <DatePicker fx:id="toPicker" prefWidth="130"/>
+                <Label text="Сортировать по:"/>
+                <ComboBox fx:id="sortCombo" prefWidth="160"/>
+                <CheckBox fx:id="descendingCheck" text="по убыванию" selected="true"/>
+                <Button text="Сбросить" styleClass="secondary-button" onAction="#onReset"/>
+            </HBox>
+            <HBox spacing="8" alignment="CENTER_LEFT">
+                <Button text="Добавить" styleClass="primary-button" onAction="#onAdd"/>
+                <Button fx:id="editButton" text="Изменить" styleClass="secondary-button" onAction="#onEdit"/>
+                <Button fx:id="statusButton" text="Статус…" styleClass="secondary-button" onAction="#onChangeStatus"/>
+                <Button fx:id="paymentButton" text="Принять платёж…" styleClass="secondary-button" onAction="#onAddPayment"/>
+                <Button fx:id="deleteButton" text="Удалить" styleClass="danger-button" onAction="#onDelete"/>
+                <Region HBox.hgrow="ALWAYS"/>
+                <Button text="Обновить" styleClass="secondary-button" onAction="#onRefresh"/>
+                <Button text="Экспорт…" styleClass="secondary-button" onAction="#onExport"/>
+            </HBox>
+        </VBox>
+    </top>
+    <center>
+        <TableView fx:id="table">
+            <columns>
+                <TableColumn fx:id="idColumn" text="№" prefWidth="50"/>
+                <TableColumn fx:id="clientColumn" text="Клиент" prefWidth="170"/>
+                <TableColumn fx:id="photographerColumn" text="Фотограф" prefWidth="170"/>
+                <TableColumn fx:id="hallColumn" text="Зал" prefWidth="110"/>
+                <TableColumn fx:id="typeColumn" text="Тип съёмки" prefWidth="110"/>
+                <TableColumn fx:id="statusColumn" text="Статус" prefWidth="110"/>
+                <TableColumn fx:id="startColumn" text="Начало" prefWidth="120"/>
+                <TableColumn fx:id="endColumn" text="Окончание" prefWidth="120"/>
+                <TableColumn fx:id="participantsColumn" text="Участников" prefWidth="85"/>
+                <TableColumn fx:id="priceColumn" text="Стоимость" prefWidth="100"/>
+                <TableColumn fx:id="paidColumn" text="Оплачено" prefWidth="100"/>
+            </columns>
+        </TableView>
+    </center>
+    <bottom>
+        <VBox spacing="6" styleClass="panel">
+            <HBox spacing="30">
+                <GridPane hgap="10" vgap="4" HBox.hgrow="ALWAYS">
+                    <Label text="Клиент:" styleClass="caption" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+                    <Label fx:id="detailClient" text="—" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+                    <Label text="Фотограф:" styleClass="caption" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+                    <Label fx:id="detailPhotographer" text="—" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+                    <Label text="Зал:" styleClass="caption" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+                    <Label fx:id="detailHall" text="—" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+                    <Label text="Тип съёмки:" styleClass="caption" GridPane.rowIndex="3" GridPane.columnIndex="0"/>
+                    <Label fx:id="detailType" text="—" GridPane.rowIndex="3" GridPane.columnIndex="1"/>
+                    <Label text="Статус:" styleClass="caption" GridPane.rowIndex="4" GridPane.columnIndex="0"/>
+                    <Label fx:id="detailStatus" text="—" GridPane.rowIndex="4" GridPane.columnIndex="1"/>
+                </GridPane>
+                <GridPane hgap="10" vgap="4" HBox.hgrow="ALWAYS">
+                    <Label text="Время:" styleClass="caption" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+                    <Label fx:id="detailTime" text="—" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+                    <Label text="Участников:" styleClass="caption" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+                    <Label fx:id="detailParticipants" text="—" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+                    <Label text="Стоимость:" styleClass="caption" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+                    <Label fx:id="detailPrice" text="—" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+                    <Label text="Оплачено:" styleClass="caption" GridPane.rowIndex="3" GridPane.columnIndex="0"/>
+                    <Label fx:id="detailPaid" text="—" GridPane.rowIndex="3" GridPane.columnIndex="1"/>
+                    <Label text="Комментарий:" styleClass="caption" GridPane.rowIndex="4" GridPane.columnIndex="0"/>
+                    <Label fx:id="detailComment" text="—" wrapText="true" GridPane.rowIndex="4" GridPane.columnIndex="1"/>
+                </GridPane>
+                <VBox spacing="4">
+                    <Label text="Платежи по бронированию:" styleClass="caption"/>
+                    <ListView fx:id="paymentsList" prefHeight="110" prefWidth="380"/>
+                </VBox>
+            </HBox>
+            <Label fx:id="countLabel" styleClass="status-bar"/>
+        </VBox>
+    </bottom>
+</BorderPane>

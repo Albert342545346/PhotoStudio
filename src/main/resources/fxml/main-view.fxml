@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="ru.mirea.photostudio.fx.controller.MainController" styleClass="app-root">
+    <top>
+        <VBox>
+            <MenuBar>
+                <Menu text="Файл">
+                    <MenuItem text="Экспорт всех таблиц в Excel…" onAction="#onExportAll"/>
+                    <SeparatorMenuItem/>
+                    <MenuItem text="Выход" onAction="#onExit"/>
+                </Menu>
+                <Menu text="Справка">
+                    <MenuItem text="О программе" onAction="#onAbout"/>
+                </Menu>
+            </MenuBar>
+            <Label text="Система управления фотостудией" styleClass="app-title"/>
+        </VBox>
+    </top>
+    <center>
+        <TabPane fx:id="tabPane" tabClosingPolicy="UNAVAILABLE">
+            <Tab text="Бронирования">
+                <content>
+                    <fx:include fx:id="bookings" source="bookings-view.fxml"/>
+                </content>
+            </Tab>
+            <Tab text="Клиенты">
+                <content>
+                    <fx:include fx:id="clients" source="clients-view.fxml"/>
+                </content>
+            </Tab>
+            <Tab text="Фотографы">
+                <content>
+                    <fx:include fx:id="photographers" source="photographers-view.fxml"/>
+                </content>
+            </Tab>
+            <Tab text="Залы">
+                <content>
+                    <fx:include fx:id="halls" source="halls-view.fxml"/>
+                </content>
+            </Tab>
+            <Tab text="Платежи">
+                <content>
+                    <fx:include fx:id="payments" source="payments-view.fxml"/>
+                </content>
+            </Tab>
+            <Tab text="Статистика">
+                <content>
+                    <fx:include fx:id="statistics" source="statistics-view.fxml"/>
+                </content>
+            </Tab>
+        </TabPane>
+    </center>
+</BorderPane>

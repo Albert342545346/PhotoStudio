@@ -1,0 +1,181 @@
+/* ===== Общие стили приложения «Фотостудия» ===== */
+.root {
+    -fx-font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+    -fx-font-size: 13px;
+    -accent: #2b5fd9;
+    -accent-dark: #1f49ab;
+    -danger: #c0392b;
+    -danger-dark: #96281b;
+    -surface: #f4f6fa;
+    -border: #d5dbe6;
+}
+
+.app-root {
+    -fx-background-color: -surface;
+}
+
+.app-title {
+    -fx-font-size: 20px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #1c2a48;
+    -fx-padding: 10 16 6 16;
+}
+
+.tab-content {
+    -fx-background-color: -surface;
+}
+
+.panel {
+    -fx-padding: 10 12 10 12;
+    -fx-background-color: white;
+    -fx-border-color: -border;
+    -fx-border-width: 0 0 1 0;
+}
+
+.caption {
+    -fx-font-weight: bold;
+    -fx-text-fill: #46536e;
+}
+
+.section-title {
+    -fx-font-size: 15px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #1c2a48;
+}
+
+.status-bar {
+    -fx-text-fill: #667289;
+    -fx-font-size: 12px;
+}
+
+/* ===== Кнопки ===== */
+.primary-button, .secondary-button, .danger-button {
+    -fx-background-radius: 6;
+    -fx-padding: 6 14 6 14;
+    -fx-cursor: hand;
+}
+
+.primary-button {
+    -fx-background-color: -accent;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+}
+
+.primary-button:hover {
+    -fx-background-color: -accent-dark;
+}
+
+.secondary-button {
+    -fx-background-color: #e5e9f2;
+    -fx-text-fill: #1c2a48;
+}
+
+.secondary-button:hover {
+    -fx-background-color: #d3dae8;
+}
+
+.danger-button {
+    -fx-background-color: -danger;
+    -fx-text-fill: white;
+}
+
+.danger-button:hover {
+    -fx-background-color: -danger-dark;
+}
+
+.primary-button:disabled, .secondary-button:disabled, .danger-button:disabled {
+    -fx-opacity: 0.45;
+}
+
+/* ===== Таблицы ===== */
+.table-view {
+    -fx-background-color: white;
+    -fx-border-color: -border;
+}
+
+.table-view .column-header .label {
+    -fx-font-weight: bold;
+}
+
+.table-row-cell:selected {
+    -fx-background-color: #cfe0ff;
+}
+
+.table-row-cell:selected .table-cell {
+    -fx-text-fill: #12203a;
+}
+
+.table-cell.status-created {
+    -fx-text-fill: #8a6d00;
+    -fx-font-weight: bold;
+}
+
+.table-cell.status-confirmed {
+    -fx-text-fill: #1f49ab;
+    -fx-font-weight: bold;
+}
+
+.table-cell.status-completed {
+    -fx-text-fill: #1e7e45;
+    -fx-font-weight: bold;
+}
+
+.table-cell.status-cancelled {
+    -fx-text-fill: #9a9a9a;
+    -fx-font-weight: bold;
+}
+
+/* ===== Формы ===== */
+.dialog-root {
+    -fx-padding: 20;
+    -fx-background-color: white;
+}
+
+.dialog-title {
+    -fx-font-size: 18px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #1c2a48;
+}
+
+.form-label {
+    -fx-font-weight: bold;
+    -fx-text-fill: #46536e;
+}
+
+.value-label {
+    -fx-text-fill: #1c2a48;
+}
+
+.price-label {
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #1e7e45;
+}
+
+.hint-label {
+    -fx-text-fill: #8a93a6;
+    -fx-font-size: 11px;
+}
+
+.error-label {
+    -fx-text-fill: -danger;
+    -fx-background-color: #fdecea;
+    -fx-border-color: #f1b5ae;
+    -fx-border-radius: 4;
+    -fx-background-radius: 4;
+    -fx-padding: 8 10 8 10;
+}
+
+.text-field:focused, .text-area:focused, .combo-box-base:focused, .date-picker:focused {
+    -fx-border-color: -accent;
+}
+
+/* ===== Диалоги Alert ===== */
+.dialog-pane .header-panel {
+    -fx-background-color: #eaf0fb;
+}
+
+.dialog-pane .header-panel .label {
+    -fx-font-weight: bold;
+    -fx-text-fill: #1c2a48;
+}

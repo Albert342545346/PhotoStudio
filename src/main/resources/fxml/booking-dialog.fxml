@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="ru.mirea.photostudio.fx.controller.BookingDialogController" spacing="14" prefWidth="600" styleClass="dialog-root">
+    <Label fx:id="titleLabel" styleClass="dialog-title"/>
+    <GridPane hgap="12" vgap="10">
+        <columnConstraints>
+            <ColumnConstraints minWidth="130" halignment="RIGHT"/>
+            <ColumnConstraints hgrow="ALWAYS" minWidth="360"/>
+        </columnConstraints>
+        <Label text="Клиент *" styleClass="form-label" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+        <ComboBox fx:id="clientCombo" maxWidth="Infinity" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+        <Label text="Фотограф *" styleClass="form-label" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+        <ComboBox fx:id="photographerCombo" maxWidth="Infinity" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+        <Label text="Зал *" styleClass="form-label" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+        <ComboBox fx:id="hallCombo" maxWidth="Infinity" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+        <Label text="Тип съёмки *" styleClass="form-label" GridPane.rowIndex="3" GridPane.columnIndex="0"/>
+        <ComboBox fx:id="typeCombo" maxWidth="Infinity" GridPane.rowIndex="3" GridPane.columnIndex="1"/>
+        <Label text="Дата *" styleClass="form-label" GridPane.rowIndex="4" GridPane.columnIndex="0"/>
+        <DatePicker fx:id="datePicker" GridPane.rowIndex="4" GridPane.columnIndex="1"/>
+        <Label text="Время *" styleClass="form-label" GridPane.rowIndex="5" GridPane.columnIndex="0"/>
+        <HBox spacing="8" alignment="CENTER_LEFT" GridPane.rowIndex="5" GridPane.columnIndex="1">
+            <ComboBox fx:id="startCombo" prefWidth="110"/>
+            <Label text="—"/>
+            <ComboBox fx:id="endCombo" prefWidth="110"/>
+            <Label text="(студия работает 09:00–21:00)" styleClass="hint-label"/>
+        </HBox>
+        <Label text="Участников *" styleClass="form-label" GridPane.rowIndex="6" GridPane.columnIndex="0"/>
+        <Spinner fx:id="participantsSpinner" prefWidth="110" GridPane.rowIndex="6" GridPane.columnIndex="1"/>
+        <Label text="Комментарий" styleClass="form-label" GridPane.rowIndex="7" GridPane.columnIndex="0" GridPane.valignment="TOP"/>
+        <TextArea fx:id="commentArea" prefRowCount="3" wrapText="true" GridPane.rowIndex="7" GridPane.columnIndex="1"/>
+        <Label fx:id="statusCaption" text="Статус" styleClass="form-label" GridPane.rowIndex="8" GridPane.columnIndex="0"/>
+        <Label fx:id="statusLabel" styleClass="value-label" GridPane.rowIndex="8" GridPane.columnIndex="1"/>
+        <Label text="Стоимость" styleClass="form-label" GridPane.rowIndex="9" GridPane.columnIndex="0"/>
+        <Label fx:id="priceLabel" styleClass="price-label" GridPane.rowIndex="9" GridPane.columnIndex="1"/>
+    </GridPane>
+    <Label fx:id="errorLabel" styleClass="error-label" wrapText="true"/>
+    <HBox spacing="8" alignment="CENTER_RIGHT">
+        <Button text="Сохранить" defaultButton="true" styleClass="primary-button" onAction="#onSave"/>
+        <Button text="Отмена" cancelButton="true" styleClass="secondary-button" onAction="#onCancel"/>
+    </HBox>
+</VBox>
